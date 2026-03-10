@@ -12,17 +12,20 @@
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
+            padding-top: 130px; /* Platz für festen Header */
             background-color: #f0f4f8;
             color: #333;
         }
 
+        /* Header immer sichtbar */
         header {
             background: linear-gradient(90deg, #003366, #0055aa);
             color: white;
             text-align: center;
             padding: 40px 20px;
-            position: sticky;
+            position: fixed; /* fixed statt sticky */
             top: 0;
+            width: 100%;
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
@@ -42,6 +45,10 @@
             justify-content: center;
             flex-wrap: wrap;
             padding: 10px;
+            position: fixed; /* Nav ebenfalls fixiert */
+            top: 120px; /* unter Header */
+            width: 100%;
+            z-index: 1000;
         }
 
         nav a {
@@ -62,7 +69,7 @@
         main {
             max-width: 1000px;
             margin: auto;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         section {
@@ -172,10 +179,15 @@
 
             nav {
                 flex-direction: column;
+                top: 110px;
             }
 
             nav a {
                 margin: 5px 0;
+            }
+
+            body {
+                padding-top: 160px; /* mehr Platz für Header + Nav auf kleineren Bildschirmen */
             }
         }
     </style>
@@ -246,14 +258,12 @@
         Helmholtz-Gymnasium Hilden<br>
         Hilden, Nordrhein-Westfalen<br>
         Deutschland<br>
-        Telefon: 02103 – 123456<br>
-        E-Mail: info@helmholtz-gymnasium-hilden.de
+        Telefon: 02103 – 123456
     </p>
 
     <h3>Nachricht senden</h3>
     <form action="#" method="post">
         <input type="text" name="name" placeholder="Ihr Name" required>
-        <input type="email" name="email" placeholder="Ihre E-Mail" required>
         <input type="text" name="betreff" placeholder="Betreff" required>
         <textarea name="nachricht" rows="5" placeholder="Ihre Nachricht" required></textarea>
         <button type="submit">Senden</button>
