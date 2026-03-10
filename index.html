@@ -3,50 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>Helmholtz-Gymnasium Hilden</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             background-color: #f4f6f8;
+            color: #333;
         }
 
         header {
             background-color: #003366;
             color: white;
-            padding: 20px;
             text-align: center;
+            padding: 30px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
         }
 
         nav {
             background-color: #0055aa;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             padding: 10px;
-            text-align: center;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
-            margin: 0 15px;
+            color: white;
+            margin: 5px 15px;
             font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background-color: #004080;
         }
 
         main {
-            padding: 30px;
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
-            background: white;
+            padding: 30px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .angebote-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .angebot-item {
+            flex: 1 1 200px;
+            background: #e6f0ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .angebot-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .angebot-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 50%;
+        }
+
+        .section-img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 15px;
         }
 
         footer {
             background-color: #003366;
             color: white;
             text-align: center;
-            padding: 10px;
-            margin-top: 30px;
+            padding: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .angebote-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
         }
     </style>
 </head>
@@ -72,16 +147,29 @@
         Die Schule bietet eine umfassende schulische Bildung mit verschiedenen
         Schwerpunkten in Naturwissenschaften, Sprachen und gesellschaftlichen Fächern.
     </p>
+    <img src="https://via.placeholder.com/800x400?text=Schule" alt="Schulgebäude Helmholtz-Gymnasium" class="section-img">
 </section>
 
 <section id="angebote">
     <h2>Angebote</h2>
-    <ul>
-        <li>Naturwissenschaftliche Projekte</li>
-        <li>Sprachförderung und Austauschprogramme</li>
-        <li>AGs wie Informatik, Musik und Sport</li>
-        <li>Moderne digitale Ausstattung</li>
-    </ul>
+    <div class="angebote-list">
+        <div class="angebot-item">
+            <img src="https://via.placeholder.com/100?text=Science" alt="Naturwissenschaften">
+            <h3>Naturwissenschaftliche Projekte</h3>
+        </div>
+        <div class="angebot-item">
+            <img src="https://via.placeholder.com/100?text=Sprachen" alt="Sprachförderung">
+            <h3>Sprachförderung & Austauschprogramme</h3>
+        </div>
+        <div class="angebot-item">
+            <img src="https://via.placeholder.com/100?text=AGs" alt="AGs">
+            <h3>AGs wie Informatik, Musik & Sport</h3>
+        </div>
+        <div class="angebot-item">
+            <img src="https://via.placeholder.com/100?text=Digital" alt="Digitale Ausstattung">
+            <h3>Moderne digitale Ausstattung</h3>
+        </div>
+    </div>
 </section>
 
 <section id="kontakt">
@@ -91,6 +179,7 @@
         Hilden, Nordrhein-Westfalen<br>
         Deutschland
     </p>
+    <img src="https://via.placeholder.com/800x400?text=Kontakt" alt="Kontakt Helmholtz-Gymnasium" class="section-img">
 </section>
 
 </main>
