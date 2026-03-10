@@ -12,7 +12,7 @@ html {
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding-top: 150px; /* Platz für Header */
+    padding-top: 0; /* Padding jetzt dynamisch durch JS */
     background-color: #f0f4f8;
     color: #333;
 }
@@ -24,8 +24,8 @@ body {
     width: 100%;
     z-index: 1000;
     background-color: #003366; /* dunkelblau */
-    transition: height 0.3s;
     overflow: hidden;
+    transition: height 0.3s;
 }
 
 #header-top {
@@ -45,7 +45,7 @@ body {
 }
 
 nav {
-    background-color: #003366;
+    background-color: #003366; /* dunkelblau */
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -72,6 +72,7 @@ main {
     max-width: 1000px;
     margin: auto;
     padding: 20px;
+    transition: padding-top 0.3s;
 }
 
 section {
@@ -80,11 +81,6 @@ section {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-}
-
-section:hover {
-    transform: translateY(-5px);
 }
 
 section h2 {
@@ -142,10 +138,6 @@ footer {
     nav a {
         margin: 5px 0;
     }
-
-    body {
-        padding-top: 180px;
-    }
 }
 </style>
 </head>
@@ -165,7 +157,7 @@ footer {
     </nav>
 </div>
 
-<main>
+<main id="main-content">
 <section id="schule">
 <h2>Über die Schule</h2>
 <p class="info-text">
@@ -247,17 +239,27 @@ Telefon: 02103 – 123456
 </footer>
 
 <script>
-// Header shrink beim Scrollen
-window.addEventListener('scroll', function() {
-    const headerTop = document.getElementById('header-top');
-    if (window.scrollY > 100) {
+// Shrinking Header
+const headerTop = document.getElementById('header-top');
+const headerContainer = document.getElementById('header-container');
+const mainContent = document.getElementById('main-content');
+
+function updateHeader() {
+    if (window.scrollY > 80) {
         headerTop.style.opacity = '0';
         headerTop.style.padding = '0';
+        headerContainer.style.height = '60px'; // klein
+        mainContent.style.paddingTop = '60px'; // Hauptinhalt verschoben
     } else {
         headerTop.style.opacity = '1';
         headerTop.style.padding = '30px 20px';
+        headerContainer.style.height = '150px'; // groß
+        mainContent.style.paddingTop = '150px';
     }
-});
+}
+
+window.addEventListener('scroll', updateHeader);
+window.addEventListener('load', updateHeader);
 </script>
 
 </body>
