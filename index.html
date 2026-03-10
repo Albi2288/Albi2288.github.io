@@ -1,302 +1,301 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Helmholtz-Gymnasium Hilden</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
+<title>Helmholtz-Gymnasium Hilden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+html {
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding-top: 130px; /* Platz für festen Header */
-            background-color: #f0f4f8;
-            color: #333;
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding-top: 150px; /* Platz für Header */
+    background-color: #f0f4f8;
+    color: #333;
+}
 
-        /* Header immer sichtbar */
-        header {
-            background: linear-gradient(90deg, #003366, #0055aa);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            position: fixed; /* fixed statt sticky */
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+/* Header */
+.header-container {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #003366; /* dunkelblau */
+    transition: height 0.3s;
+    overflow: hidden;
+}
 
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
-        }
+#header-top {
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    transition: opacity 0.3s, padding 0.3s;
+}
 
-        header p {
-            font-size: 1.1em;
-        }
+#header-top h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5em;
+}
 
-        nav {
-            background-color: #0055aa;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 10px;
-            position: fixed; /* Nav ebenfalls fixiert */
-            top: 120px; /* unter Header */
-            width: 100%;
-            z-index: 1000;
-        }
+#header-top p {
+    font-size: 1.1em;
+}
 
-        nav a {
-            text-decoration: none;
-            color: white;
-            margin: 5px 15px;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background 0.3s, transform 0.3s;
-        }
+nav {
+    background-color: #003366; /* dunkelblau */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    transition: padding 0.3s;
+}
 
-        nav a:hover {
-            background-color: #004080;
-            transform: translateY(-3px);
-        }
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 5px 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.3s;
+}
 
-        main {
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-        }
+nav a:hover {
+    background-color: #004080;
+    transform: translateY(-2px);
+}
 
-        section {
-            margin-bottom: 80px;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
 
-        section:hover {
-            transform: translateY(-5px);
-        }
+section {
+    margin-bottom: 60px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
 
-        section h2 {
-            color: #003366;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #0055aa;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
+section:hover {
+    transform: translateY(-5px);
+}
 
-        .angebote-list, .faecher-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+section h2 {
+    color: #003366;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #0055aa;
+    display: inline-block;
+    padding-bottom: 5px;
+}
 
-        .angebot-item, .fach-item {
-            flex: 1 1 220px;
-            background: #e6f0ff;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.angebote-list, .faecher-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
-        .angebot-item:hover, .fach-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
+.angebot-item, .fach-item {
+    flex: 1 1 220px;
+    background: #e6f0ff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        .angebot-item h3, .fach-item h3 {
-            margin: 10px 0 0 0;
-            color: #003366;
-        }
+.angebot-item:hover, .fach-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-        .info-text {
-            margin-top: 15px;
-            line-height: 1.6;
-        }
+.angebot-item h3, .fach-item h3 {
+    margin: 10px 0 0 0;
+    color: #003366;
+}
 
-        /* Kontaktformular */
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
+.info-text {
+    margin-top: 15px;
+    line-height: 1.6;
+}
 
-        input, textarea {
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 1em;
-            width: 100%;
-            box-sizing: border-box;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
+/* Kontaktformular */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
 
-        input:focus, textarea:focus {
-            border-color: #0055aa;
-            box-shadow: 0 0 5px rgba(0,85,170,0.5);
-            outline: none;
-        }
+input, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-        button {
-            background-color: #0055aa;
-            color: white;
-            font-weight: bold;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-        }
+input:focus, textarea:focus {
+    border-color: #0055aa;
+    box-shadow: 0 0 5px rgba(0,85,170,0.5);
+    outline: none;
+}
 
-        button:hover {
-            background-color: #004080;
-            transform: translateY(-2px);
-        }
+button {
+    background-color: #0055aa;
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
 
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 25px 10px;
-            font-size: 0.9em;
-        }
+button:hover {
+    background-color: #004080;
+    transform: translateY(-2px);
+}
 
-        @media (max-width: 800px) {
-            .angebote-list, .faecher-list {
-                flex-direction: column;
-                align-items: center;
-            }
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+    font-size: 0.9em;
+}
 
-            nav {
-                flex-direction: column;
-                top: 110px;
-            }
+@media (max-width: 800px) {
+    .angebote-list, .faecher-list {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            nav a {
-                margin: 5px 0;
-            }
+    nav a {
+        margin: 5px 0;
+    }
 
-            body {
-                padding-top: 160px; /* Platz für Header + Nav */
-            }
-        }
-    </style>
+    body {
+        padding-top: 180px;
+    }
+}
+</style>
 </head>
 <body>
 
-<header>
-    <h1>Helmholtz-Gymnasium Hilden</h1>
-    <p>Ein Ort für Bildung, Wissenschaft und Gemeinschaft</p>
-</header>
-
-<nav>
-    <a href="#schule">Die Schule</a>
-    <a href="#angebote">Angebote</a>
-    <a href="#faecher">Fächer</a>
-    <a href="#schwerpunkte">Schwerpunkte</a>
-    <a href="#kontakt">Kontakt</a>
-</nav>
+<div class="header-container" id="header-container">
+    <div id="header-top">
+        <h1>Helmholtz-Gymnasium Hilden</h1>
+        <p>Ein Ort für Bildung, Wissenschaft und Gemeinschaft</p>
+    </div>
+    <nav>
+        <a href="#schule">Die Schule</a>
+        <a href="#angebote">Angebote</a>
+        <a href="#faecher">Fächer</a>
+        <a href="#schwerpunkte">Schwerpunkte</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</div>
 
 <main>
-
 <section id="schule">
-    <h2>Über die Schule</h2>
-    <p class="info-text">
-        Das Helmholtz-Gymnasium in Hilden ist ein modernes Gymnasium in Nordrhein-Westfalen. 
-        Seit seiner Gründung legt die Schule großen Wert auf eine ausgewogene Ausbildung in 
-        Naturwissenschaften, Sprachen, Informatik, Kunst und Sport. 
-        Die Schule unterstützt individuelle Förderung und ein respektvolles Miteinander in einer 
-        familiären Atmosphäre.
-    </p>
+<h2>Über die Schule</h2>
+<p class="info-text">
+Das Helmholtz-Gymnasium in Hilden ist ein modernes Gymnasium in Nordrhein-Westfalen. 
+Seit seiner Gründung legt die Schule großen Wert auf eine ausgewogene Ausbildung in 
+Naturwissenschaften, Sprachen, Informatik, Kunst und Sport. 
+Die Schule unterstützt individuelle Förderung und ein respektvolles Miteinander in einer 
+familiären Atmosphäre.
+</p>
 </section>
 
 <section id="angebote">
-    <h2>Angebote</h2>
-    <div class="angebote-list">
-        <div class="angebot-item">
-            <h3>Naturwissenschaftliche Projekte</h3>
-            <p class="info-text">Experimente, AGs und Wettbewerbe in Physik, Chemie und Biologie.</p>
-        </div>
-        <div class="angebot-item">
-            <h3>Sprachförderung & Austauschprogramme</h3>
-            <p class="info-text">Fremdsprachen lernen und internationale Partnerschaften erleben.</p>
-        </div>
-        <div class="angebot-item">
-            <h3>AGs und Musik</h3>
-            <p class="info-text">Musik-, Sport- und Informatik-AGs fördern kreative und praktische Fähigkeiten.</p>
-        </div>
-        <div class="angebot-item">
-            <h3>Digitale Ausstattung</h3>
-            <p class="info-text">Tablets, Smartboards und moderne Software unterstützen den Unterricht.</p>
-        </div>
-    </div>
+<h2>Angebote</h2>
+<div class="angebote-list">
+<div class="angebot-item"><h3>Naturwissenschaftliche Projekte</h3><p class="info-text">Experimente, AGs und Wettbewerbe in Physik, Chemie und Biologie.</p></div>
+<div class="angebot-item"><h3>Sprachförderung & Austauschprogramme</h3><p class="info-text">Fremdsprachen lernen und internationale Partnerschaften erleben.</p></div>
+<div class="angebot-item"><h3>AGs und Musik</h3><p class="info-text">Musik-, Sport- und Informatik-AGs fördern kreative und praktische Fähigkeiten.</p></div>
+<div class="angebot-item"><h3>Digitale Ausstattung</h3><p class="info-text">Tablets, Smartboards und moderne Software unterstützen den Unterricht.</p></div>
+</div>
 </section>
 
 <section id="faecher">
-    <h2>Fächer</h2>
-    <div class="faecher-list">
-        <div class="fach-item"><h3>Mathematik</h3></div>
-        <div class="fach-item"><h3>Physik</h3></div>
-        <div class="fach-item"><h3>Chemie</h3></div>
-        <div class="fach-item"><h3>Biologie</h3></div>
-        <div class="fach-item"><h3>Deutsch</h3></div>
-        <div class="fach-item"><h3>Englisch</h3></div>
-        <div class="fach-item"><h3>Französisch</h3></div>
-        <div class="fach-item"><h3>Spanisch</h3></div>
-        <div class="fach-item"><h3>Informatik</h3></div>
-        <div class="fach-item"><h3>Kunst</h3></div>
-        <div class="fach-item"><h3>Musik</h3></div>
-        <div class="fach-item"><h3>Sport</h3></div>
-        <div class="fach-item"><h3>Geschichte</h3></div>
-        <div class="fach-item"><h3>Geografie</h3></div>
-        <div class="fach-item"><h3>Politik/Wirtschaft</h3></div>
-    </div>
+<h2>Fächer</h2>
+<div class="faecher-list">
+<div class="fach-item"><h3>Mathematik</h3></div>
+<div class="fach-item"><h3>Physik</h3></div>
+<div class="fach-item"><h3>Chemie</h3></div>
+<div class="fach-item"><h3>Biologie</h3></div>
+<div class="fach-item"><h3>Deutsch</h3></div>
+<div class="fach-item"><h3>Englisch</h3></div>
+<div class="fach-item"><h3>Französisch</h3></div>
+<div class="fach-item"><h3>Spanisch</h3></div>
+<div class="fach-item"><h3>Informatik</h3></div>
+<div class="fach-item"><h3>Kunst</h3></div>
+<div class="fach-item"><h3>Musik</h3></div>
+<div class="fach-item"><h3>Sport</h3></div>
+<div class="fach-item"><h3>Geschichte</h3></div>
+<div class="fach-item"><h3>Geografie</h3></div>
+<div class="fach-item"><h3>Politik/Wirtschaft</h3></div>
+</div>
 </section>
 
 <section id="schwerpunkte">
-    <h2>Schwerpunkte</h2>
-    <p class="info-text">
-        Das Gymnasium legt besonderen Wert auf die Förderung von Naturwissenschaften und Mathematik. 
-        Parallel dazu wird ein starkes Sprachenangebot gepflegt. Schüler:innen können zwischen 
-        verschiedenen Profilen wählen, wie z. B. naturwissenschaftliches Profil, sprachliches Profil 
-        oder sportliches Profil. Zusätzliche Förderkurse, Projektwochen und Wettbewerbe bieten die 
-        Möglichkeit, Wissen praxisnah anzuwenden.
-    </p>
+<h2>Schwerpunkte</h2>
+<p class="info-text">
+Das Gymnasium legt besonderen Wert auf die Förderung von Naturwissenschaften und Mathematik. 
+Parallel dazu wird ein starkes Sprachenangebot gepflegt. Schüler:innen können zwischen 
+verschiedenen Profilen wählen, wie z. B. naturwissenschaftliches Profil, sprachliches Profil 
+oder sportliches Profil. Zusätzliche Förderkurse, Projektwochen und Wettbewerbe bieten die 
+Möglichkeit, Wissen praxisnah anzuwenden.
+</p>
 </section>
 
 <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p class="info-text">
-        Helmholtz-Gymnasium Hilden<br>
-        Hilden, Nordrhein-Westfalen<br>
-        Deutschland<br>
-        Telefon: 02103 – 123456
-    </p>
+<h2>Kontakt</h2>
+<p class="info-text">
+Helmholtz-Gymnasium Hilden<br>
+Hilden, Nordrhein-Westfalen<br>
+Deutschland<br>
+Telefon: 02103 – 123456
+</p>
 
-    <h3>Nachricht senden</h3>
-    <form action="#" method="post">
-        <input type="text" name="name" placeholder="Ihr Name" required>
-        <input type="text" name="betreff" placeholder="Betreff" required>
-        <textarea name="nachricht" rows="5" placeholder="Ihre Nachricht" required></textarea>
-        <button type="submit">Senden</button>
-    </form>
+<h3>Nachricht senden</h3>
+<form action="#" method="post">
+<input type="text" name="name" placeholder="Ihr Name" required>
+<input type="text" name="betreff" placeholder="Betreff" required>
+<textarea name="nachricht" rows="5" placeholder="Ihre Nachricht" required></textarea>
+<button type="submit">Senden</button>
+</form>
 </section>
 
 </main>
 
 <footer>
-    <p>© 2026 Helmholtz-Gymnasium Hilden – Alle Rechte vorbehalten</p>
+<p>© 2026 Helmholtz-Gymnasium Hilden – Alle Rechte vorbehalten</p>
 </footer>
+
+<script>
+// Header shrink beim Scrollen
+window.addEventListener('scroll', function() {
+    const headerTop = document.getElementById('header-top');
+    if (window.scrollY > 100) {
+        headerTop.style.opacity = '0';
+        headerTop.style.padding = '0';
+    } else {
+        headerTop.style.opacity = '1';
+        headerTop.style.padding = '30px 20px';
+    }
+});
+</script>
 
 </body>
 </html>
