@@ -93,13 +93,13 @@
             padding-bottom: 5px;
         }
 
-        .angebote-list {
+        .angebote-list, .faecher-list {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
 
-        .angebot-item {
+        .angebot-item, .fach-item {
             flex: 1 1 220px;
             background: #e6f0ff;
             padding: 20px;
@@ -108,12 +108,12 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .angebot-item:hover {
+        .angebot-item:hover, .fach-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .angebot-item h3 {
+        .angebot-item h3, .fach-item h3 {
             margin: 10px 0 0 0;
             color: #003366;
         }
@@ -172,7 +172,7 @@
         }
 
         @media (max-width: 800px) {
-            .angebote-list {
+            .angebote-list, .faecher-list {
                 flex-direction: column;
                 align-items: center;
             }
@@ -187,7 +187,7 @@
             }
 
             body {
-                padding-top: 160px; /* mehr Platz für Header + Nav auf kleineren Bildschirmen */
+                padding-top: 160px; /* Platz für Header + Nav */
             }
         }
     </style>
@@ -202,6 +202,7 @@
 <nav>
     <a href="#schule">Die Schule</a>
     <a href="#angebote">Angebote</a>
+    <a href="#faecher">Fächer</a>
     <a href="#schwerpunkte">Schwerpunkte</a>
     <a href="#kontakt">Kontakt</a>
 </nav>
@@ -238,6 +239,27 @@
             <h3>Digitale Ausstattung</h3>
             <p class="info-text">Tablets, Smartboards und moderne Software unterstützen den Unterricht.</p>
         </div>
+    </div>
+</section>
+
+<section id="faecher">
+    <h2>Fächer</h2>
+    <div class="faecher-list">
+        <div class="fach-item"><h3>Mathematik</h3></div>
+        <div class="fach-item"><h3>Physik</h3></div>
+        <div class="fach-item"><h3>Chemie</h3></div>
+        <div class="fach-item"><h3>Biologie</h3></div>
+        <div class="fach-item"><h3>Deutsch</h3></div>
+        <div class="fach-item"><h3>Englisch</h3></div>
+        <div class="fach-item"><h3>Französisch</h3></div>
+        <div class="fach-item"><h3>Spanisch</h3></div>
+        <div class="fach-item"><h3>Informatik</h3></div>
+        <div class="fach-item"><h3>Kunst</h3></div>
+        <div class="fach-item"><h3>Musik</h3></div>
+        <div class="fach-item"><h3>Sport</h3></div>
+        <div class="fach-item"><h3>Geschichte</h3></div>
+        <div class="fach-item"><h3>Geografie</h3></div>
+        <div class="fach-item"><h3>Politik/Wirtschaft</h3></div>
     </div>
 </section>
 
