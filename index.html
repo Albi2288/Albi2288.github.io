@@ -45,7 +45,7 @@ body {
 }
 
 nav {
-    background-color: #003366; /* dunkelblau */
+    background-color: #003366;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -125,46 +125,6 @@ section h2 {
     line-height: 1.6;
 }
 
-/* Kontaktformular */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-input, textarea {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    width: 100%;
-    box-sizing: border-box;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input:focus, textarea:focus {
-    border-color: #0055aa;
-    box-shadow: 0 0 5px rgba(0,85,170,0.5);
-    outline: none;
-}
-
-button {
-    background-color: #0055aa;
-    color: white;
-    font-weight: bold;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background-color: #004080;
-    transform: translateY(-2px);
-}
-
 footer {
     background-color: #003366;
     color: white;
@@ -215,6 +175,16 @@ Naturwissenschaften, Sprachen, Informatik, Kunst und Sport.
 Die Schule unterstützt individuelle Förderung und ein respektvolles Miteinander in einer 
 familiären Atmosphäre.
 </p>
+<p class="info-text">
+Die Schule verfügt über moderne Unterrichtsräume, Labore für Chemie, Biologie und Physik sowie eine 
+digitale Ausstattung mit Smartboards und Tablets. Projektwochen, Wettbewerbe und AGs ermöglichen es den 
+Schüler:innen, Wissen praktisch anzuwenden und persönliche Interessen zu vertiefen.
+</p>
+<p class="info-text">
+Besondere Schwerpunkte liegen auf der Förderung von Naturwissenschaften, Sprachen und digitalen Kompetenzen. 
+Darüber hinaus werden Austauschprogramme mit Partnerschulen im Ausland angeboten, um interkulturelle Erfahrungen zu sammeln. 
+Kulturelle Aktivitäten, Theaterprojekte, Musikensembles und Sportveranstaltungen runden das Schulleben ab.
+</p>
 </section>
 
 <section id="angebote">
@@ -224,6 +194,7 @@ familiären Atmosphäre.
 <div class="angebot-item"><h3>Sprachförderung & Austauschprogramme</h3><p class="info-text">Fremdsprachen lernen und internationale Partnerschaften erleben.</p></div>
 <div class="angebot-item"><h3>AGs und Musik</h3><p class="info-text">Musik-, Sport- und Informatik-AGs fördern kreative und praktische Fähigkeiten.</p></div>
 <div class="angebot-item"><h3>Digitale Ausstattung</h3><p class="info-text">Tablets, Smartboards und moderne Software unterstützen den Unterricht.</p></div>
+<div class="angebot-item"><h3>Projektwochen & Wettbewerbe</h3><p class="info-text">Praxisnahe Erfahrungen und Förderung von Talenten in allen Fächern.</p></div>
 </div>
 </section>
 
@@ -267,14 +238,6 @@ Hilden, Nordrhein-Westfalen<br>
 Deutschland<br>
 Telefon: 02103 – 123456
 </p>
-
-<h3>Nachricht senden</h3>
-<form action="#" method="post">
-<input type="text" name="name" placeholder="Ihr Name" required>
-<input type="text" name="betreff" placeholder="Betreff" required>
-<textarea name="nachricht" rows="5" placeholder="Ihre Nachricht" required></textarea>
-<button type="submit">Senden</button>
-</form>
 </section>
 
 </main>
