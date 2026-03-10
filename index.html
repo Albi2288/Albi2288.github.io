@@ -12,7 +12,7 @@ html {
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding-top: 0; /* Padding jetzt dynamisch durch JS */
+    padding-top: 0;
     background-color: #f0f4f8;
     color: #333;
 }
@@ -23,7 +23,7 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: #003366; /* dunkelblau */
+    background-color: #003366;
     overflow: hidden;
     transition: height 0.3s;
 }
@@ -45,7 +45,7 @@ body {
 }
 
 nav {
-    background-color: #003366; /* dunkelblau */
+    background-color: #003366;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -103,6 +103,7 @@ section h2 {
     padding: 20px;
     border-radius: 12px;
     text-align: center;
+    cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -129,6 +130,35 @@ footer {
     font-size: 0.9em;
 }
 
+/* Fach Detailansicht */
+.fach-detail {
+    display: none;
+    background: #f0f4f8;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.fach-detail h3 {
+    margin-top: 0;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 8px 15px;
+    background-color: #0055aa;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn:hover {
+    background-color: #004080;
+}
+
+/* Responsive */
 @media (max-width: 800px) {
     .angebote-list, .faecher-list {
         flex-direction: column;
@@ -162,63 +192,45 @@ footer {
 <h2>Über die Schule</h2>
 <p class="info-text">
 Das Helmholtz-Gymnasium in Hilden ist ein modernes Gymnasium in Nordrhein-Westfalen. 
-Seit seiner Gründung legt die Schule großen Wert auf eine ausgewogene Ausbildung in 
-Naturwissenschaften, Sprachen, Informatik, Kunst und Sport. 
-Die Schule unterstützt individuelle Förderung und ein respektvolles Miteinander in einer 
-familiären Atmosphäre.
-</p>
-<p class="info-text">
-Die Schule verfügt über moderne Unterrichtsräume, Labore für Chemie, Biologie und Physik sowie eine 
-digitale Ausstattung mit Smartboards und Tablets. Projektwochen, Wettbewerbe und AGs ermöglichen es den 
-Schüler:innen, Wissen praktisch anzuwenden und persönliche Interessen zu vertiefen.
-</p>
-<p class="info-text">
-Besondere Schwerpunkte liegen auf der Förderung von Naturwissenschaften, Sprachen und digitalen Kompetenzen. 
-Darüber hinaus werden Austauschprogramme mit Partnerschulen im Ausland angeboten, um interkulturelle Erfahrungen zu sammeln. 
-Kulturelle Aktivitäten, Theaterprojekte, Musikensembles und Sportveranstaltungen runden das Schulleben ab.
+Es legt großen Wert auf Naturwissenschaften, Sprachen, Kunst und Sport und unterstützt 
+individuelle Förderung.
 </p>
 </section>
 
 <section id="angebote">
 <h2>Angebote</h2>
 <div class="angebote-list">
-<div class="angebot-item"><h3>Naturwissenschaftliche Projekte</h3><p class="info-text">Experimente, AGs und Wettbewerbe in Physik, Chemie und Biologie.</p></div>
-<div class="angebot-item"><h3>Sprachförderung & Austauschprogramme</h3><p class="info-text">Fremdsprachen lernen und internationale Partnerschaften erleben.</p></div>
-<div class="angebot-item"><h3>AGs und Musik</h3><p class="info-text">Musik-, Sport- und Informatik-AGs fördern kreative und praktische Fähigkeiten.</p></div>
-<div class="angebot-item"><h3>Digitale Ausstattung</h3><p class="info-text">Tablets, Smartboards und moderne Software unterstützen den Unterricht.</p></div>
-<div class="angebot-item"><h3>Projektwochen & Wettbewerbe</h3><p class="info-text">Praxisnahe Erfahrungen und Förderung von Talenten in allen Fächern.</p></div>
+<div class="angebot-item"><h3>Naturwissenschaftliche Projekte</h3></div>
+<div class="angebot-item"><h3>Sprachförderung & Austauschprogramme</h3></div>
+<div class="angebot-item"><h3>AGs und Musik</h3></div>
+<div class="angebot-item"><h3>Digitale Ausstattung</h3></div>
+<div class="angebot-item"><h3>Projektwochen & Wettbewerbe</h3></div>
 </div>
 </section>
 
 <section id="faecher">
 <h2>Fächer</h2>
 <div class="faecher-list">
-<div class="fach-item"><h3>Mathematik</h3></div>
-<div class="fach-item"><h3>Physik</h3></div>
-<div class="fach-item"><h3>Chemie</h3></div>
-<div class="fach-item"><h3>Biologie</h3></div>
-<div class="fach-item"><h3>Deutsch</h3></div>
-<div class="fach-item"><h3>Englisch</h3></div>
-<div class="fach-item"><h3>Französisch</h3></div>
-<div class="fach-item"><h3>Spanisch</h3></div>
-<div class="fach-item"><h3>Informatik</h3></div>
-<div class="fach-item"><h3>Kunst</h3></div>
-<div class="fach-item"><h3>Musik</h3></div>
-<div class="fach-item"><h3>Sport</h3></div>
-<div class="fach-item"><h3>Geschichte</h3></div>
-<div class="fach-item"><h3>Geografie</h3></div>
-<div class="fach-item"><h3>Politik/Wirtschaft</h3></div>
+<div class="fach-item" data-fach="Mathematik"><h3>Mathematik</h3></div>
+<div class="fach-item" data-fach="Physik"><h3>Physik</h3></div>
+<div class="fach-item" data-fach="Chemie"><h3>Chemie</h3></div>
+<div class="fach-item" data-fach="Biologie"><h3>Biologie</h3></div>
+<div class="fach-item" data-fach="Deutsch"><h3>Deutsch</h3></div>
+<div class="fach-item" data-fach="Englisch"><h3>Englisch</h3></div>
+</div>
+
+<!-- Fach Detailanzeige -->
+<div id="fach-detail" class="fach-detail">
+<a class="back-btn" id="back-btn">&#8592; Zurück</a>
+<h3 id="fach-title"></h3>
+<p id="fach-info"></p>
 </div>
 </section>
 
 <section id="schwerpunkte">
 <h2>Schwerpunkte</h2>
 <p class="info-text">
-Das Gymnasium legt besonderen Wert auf die Förderung von Naturwissenschaften und Mathematik. 
-Parallel dazu wird ein starkes Sprachenangebot gepflegt. Schüler:innen können zwischen 
-verschiedenen Profilen wählen, wie z. B. naturwissenschaftliches Profil, sprachliches Profil 
-oder sportliches Profil. Zusätzliche Förderkurse, Projektwochen und Wettbewerbe bieten die 
-Möglichkeit, Wissen praxisnah anzuwenden.
+Förderung von Naturwissenschaften, Mathematik und Sprachen. Wahl zwischen verschiedenen Profilen und Projektwochen.
 </p>
 </section>
 
@@ -228,11 +240,9 @@ Möglichkeit, Wissen praxisnah anzuwenden.
 Helmholtz-Gymnasium Hilden<br>
 Hilden, Nordrhein-Westfalen<br>
 Deutschland<br>
-Telefon: 02103 – 123456<br>
-Email: sekretariat@hgh.hilden.de
+Telefon: 02103 – 123456
 </p>
 </section>
-
 </main>
 
 <footer>
@@ -249,19 +259,50 @@ function updateHeader() {
     if (window.scrollY > 80) {
         headerTop.style.opacity = '0';
         headerTop.style.padding = '0';
-        headerContainer.style.height = '60px'; // klein
-        mainContent.style.paddingTop = '60px'; // Hauptinhalt verschoben
+        headerContainer.style.height = '60px';
+        mainContent.style.paddingTop = '60px';
     } else {
         headerTop.style.opacity = '1';
         headerTop.style.padding = '30px 20px';
-        headerContainer.style.height = '150px'; // groß
+        headerContainer.style.height = '150px';
         mainContent.style.paddingTop = '150px';
     }
 }
 
 window.addEventListener('scroll', updateHeader);
 window.addEventListener('load', updateHeader);
-</script>
 
+// Fach Details
+const fachItems = document.querySelectorAll('.fach-item');
+const fachDetail = document.getElementById('fach-detail');
+const fachTitle = document.getElementById('fach-title');
+const fachInfo = document.getElementById('fach-info');
+const backBtn = document.getElementById('back-btn');
+
+const fachInfos = {
+    "Mathematik": "Mathematik fördert logisches Denken, Problemlösung und analytische Fähigkeiten. Wettbewerbe und Projekte sind Teil des Unterrichts.",
+    "Physik": "Physik vermittelt Verständnis für Naturgesetze, Experimentieren und physikalische Modelle.",
+    "Chemie": "Chemie umfasst Laborarbeit, Experimente und theoretisches Wissen über Stoffe und Reaktionen.",
+    "Biologie": "Biologie behandelt Leben, Ökosysteme, Zellbiologie und Genetik. Praktische Versuche und Exkursionen werden angeboten.",
+    "Deutsch": "Deutsch fördert Literatur, Sprachkompetenz, Schreiben und Präsentationen.",
+    "Englisch": "Englisch umfasst Grammatik, Konversation, Lektüren und Austauschprogramme."
+};
+
+fachItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const fach = item.dataset.fach;
+        fachTitle.textContent = fach;
+        fachInfo.textContent = fachInfos[fach] || "Keine weiteren Informationen verfügbar.";
+        fachDetail.style.display = "block";
+        item.parentElement.style.display = "none"; // Fächerübersicht ausblenden
+        window.scrollTo({ top: fachDetail.offsetTop - 70, behavior: 'smooth' });
+    });
+});
+
+backBtn.addEventListener('click', () => {
+    fachDetail.style.display = "none";
+    document.querySelector('.faecher-list').style.display = "flex";
+});
+</script>
 </body>
 </html>
