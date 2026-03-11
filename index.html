@@ -54,6 +54,7 @@ padding:15px 0;
 }
 
 nav a{
+position:relative;
 color:#ffd24d;
 text-decoration:none;
 margin:6px 15px;
@@ -61,6 +62,21 @@ font-weight:bold;
 padding:10px 20px;
 border-radius:10px;
 transition:all .25s ease;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:0%;
+height:2px;
+background:#ffd24d;
+transition:width .25s;
+}
+
+nav a:hover::after{
+width:100%;
 }
 
 nav a:hover{
@@ -213,6 +229,12 @@ box-shadow:0 5px 12px rgba(0,0,0,.3);
 
 @media(max-width:700px){
 
+#menuBtn{display:block;margin:auto;margin-bottom:10px;}
+
+#navLinks{display:none;flex-direction:column;align-items:center;}
+
+#navLinks.show{display:flex;}
+
 .hero h2{
 font-size:1.8em;
 }
@@ -239,12 +261,15 @@ padding:10px 0;
 <p>Ein Ort für Bildung, Wissenschaft und Gemeinschaft</p>
 </div>
 
-<nav>
+<nav id="navbar">
+<button id="menuBtn" style="display:none;background:none;border:none;color:#ffd24d;font-size:22px;cursor:pointer;">☰</button>
+<div id="navLinks">
 <a href="#schule">Schule</a>
 <a href="#angebote">Angebote</a>
-<a href="#faecher">Fächer</a>
+
 
 <a href="#kontakt">Kontakt</a>
+</div>
 </nav>
 
 </div>
@@ -297,25 +322,28 @@ Durch Projektwochen, Exkursionen, Wettbewerbe und Kooperationen mit Universität
 </div>
 </section>
 
-<section id="faecher">
-<h2>Fächer</h2>
-<div class="faecher-list">
-<div class="fach-item">Mathematik</div>
-<div class="fach-item">Physik</div>
-<div class="fach-item">Chemie</div>
-<div class="fach-item">Biologie</div>
-<div class="fach-item">Deutsch</div>
-<div class="fach-item">Englisch</div>
-<div class="fach-item">Französisch</div>
-<div class="fach-item">Spanisch</div>
-<div class="fach-item">Informatik</div>
-<div class="fach-item">Kunst</div>
-<div class="fach-item">Musik</div>
-<div class="fach-item">Sport</div>
-</div>
+
+
+
+
+<section id="schulleben">
+<h2>Schulleben & Projekte</h2>
+<p class="info-text">
+Das Schulleben am Helmholtz‑Gymnasium ist vielfältig und lebendig. Neben dem regulären Unterricht finden zahlreiche Projekte, Veranstaltungen und gemeinsame Aktivitäten statt, die das Lernen abwechslungsreich und praxisnah machen.
+</p>
+
+<p class="info-text">
+Projektwochen geben Schülerinnen und Schülern die Möglichkeit, sich intensiv mit Themen zu beschäftigen, die über den normalen Unterricht hinausgehen. Dabei entstehen kreative Projekte, wissenschaftliche Experimente oder soziale Initiativen.
+</p>
+
+<p class="info-text">
+Regelmäßig organisiert die Schule Wettbewerbe, Exkursionen, Sportveranstaltungen und kulturelle Aufführungen. Diese Aktivitäten stärken nicht nur fachliche Fähigkeiten, sondern auch Teamarbeit, Verantwortung und Selbstständigkeit.
+</p>
+
+<p class="info-text">
+Arbeitsgemeinschaften bieten zusätzliche Möglichkeiten, Interessen zu vertiefen – zum Beispiel in den Bereichen Musik, Informatik, Naturwissenschaften, Sport oder Theater.
+</p>
 </section>
-
-
 
 <section id="kontakt">
 <h2>Kontakt</h2>
@@ -392,6 +420,39 @@ window.addEventListener("load",reveal)
 
 
 /* DARK MODE */
+
+
+/* MOBILE MENU */
+
+const menuBtn=document.getElementById("menuBtn")
+const navLinks=document.getElementById("navLinks")
+
+menuBtn?.addEventListener("click",()=>{
+navLinks.classList.toggle("show")
+})
+
+/* ACTIVE NAV LINK */
+
+const navItems=document.querySelectorAll("nav a")
+
+window.addEventListener("scroll",()=>{
+
+let fromTop=window.scrollY+120
+
+navItems.forEach(link=>{
+
+let section=document.querySelector(link.getAttribute("href"))
+
+if(section && section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){
+
+navItems.forEach(l=>l.style.opacity="0.6")
+link.style.opacity="1"
+
+}
+
+})
+
+})
 
 function toggleDark(){
 
